@@ -1,6 +1,7 @@
 const express=require('express');
 const authRoute = require('./routes/auth');
 const fileRoute = require('./routes/file');
+const metaRoute = require('./routes/meta');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
@@ -21,6 +22,7 @@ app.use(express.json());
 
 app.use('/user', authRoute);
 app.use('/file', fileRoute);
+app.use('/meta', metaRoute);
 
 app.listen(PORT,HOST);
 console.log(`Running on http://${HOST}:${PORT}`);

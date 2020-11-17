@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body{
+  background-color: #f6f6f6;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +39,48 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.check{
+  margin: 20px;
+}
+
+.redBtn{
+  background-color: #CB3559;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 6px;
+  box-shadow: 6px 6px #e5e5e5;
+  margin: 10px;
+}
+
+.greenBtn{
+  background-color: #35cb9d;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 6px;
+  box-shadow: 6px 6px #e5e5e5;
+  margin: 10px;
+}
+
+.blueBtn{
+  background-color: #385fcb;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 6px;
+  box-shadow: 6px 6px #e5e5e5;
+  margin: 10px;
+}
+
+.whiteInput{
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 10px 30px;
+  border-radius: 6px;
+  box-shadow: 6px 6px #e5e5e5;
+  margin: 10px;
 }

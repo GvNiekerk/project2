@@ -55,8 +55,8 @@ function ClassifyData(data) {
     id = data.match(/(?<!\d)\d{13}(?!\d)/g);
 
     return {
-        email : email != "" ? true : false,
-        mobile : mobile != "" ? true : false,
+        email : email ? true : false,
+        mobile : mobile ? true : false,
         id : Luhn.isValid(id.toString())
     }
 }
