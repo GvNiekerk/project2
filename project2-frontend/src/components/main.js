@@ -1,6 +1,16 @@
 import { Component } from "react";
 import Cookies from 'universal-cookie'
 
+function getBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  }
+
+
 class Main extends Component {
 
     constructor(props) {
@@ -151,16 +161,14 @@ class Main extends Component {
         })
     }
 
+
     handleUpload(event) {
         event.preventDefault();
 
         let file = event.target.files[0]
-        let reader = new FileReader();
-        reader.readAsDataURL(file);
-
-        reader.onloadend = () => {
-            this.UploadFile(file.name, reader.result)
-        }
+        getBase64(file).then((base) => {
+            this.UploadFile(file.name, base.split(',')[1])
+        });
     }
 
     handleSearch(event) {

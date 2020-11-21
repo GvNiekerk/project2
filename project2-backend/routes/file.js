@@ -38,6 +38,7 @@ async function LoadText(ext, buff) {
                 if (roa.length) result[sheetName] = roa;
             });
             data = JSON.stringify(result);
+            console.log(data);
             return data;
 
         default:
@@ -57,7 +58,7 @@ function ClassifyData(data) {
     return {
         email : email ? true : false,
         mobile : mobile ? true : false,
-        id : Luhn.isValid(id.toString())
+        id : id? Luhn.isValid(id.toString()): false
     }
 }
 

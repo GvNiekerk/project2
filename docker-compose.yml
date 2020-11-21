@@ -1,0 +1,31 @@
+version: '3'
+services:
+  frontend:
+    image: project2-frontend
+    build: ./project2-frontend
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./project2-frontend:/srv/app/frontend
+  backend:
+    image: project2-backend
+    build: ./project2-backend
+    command: node app.js
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./project2-backend:/srv/app/backend
+    depends_on:
+      - "mongo"
+  mongo:
+    image: "mongo"
+    ports: 
+      - "27017:27017"
+  
+  adminmongo:
+    image: "mrvautin/adminmongo"
+    ports:
+      - "1234:1234"
+    environment:
+      - HOST=0.0.0.0
